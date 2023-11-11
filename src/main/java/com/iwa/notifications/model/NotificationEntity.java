@@ -1,5 +1,6 @@
 package com.iwa.notifications.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,16 +18,20 @@ public class NotificationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_notification")  // This maps the field to the id_notification column in the database
-    private Long id_notification;
+    @JsonProperty("id_notification")
+    private Long idNotification;
 
     @Column(name = "id_user")
-    private Long id_user;
+    @JsonProperty("id_user")
+    private Long idUser;
 
     @Column(name = "id_admin")
-    private Long id_admin;
+    @JsonProperty("id_admin")
+    private Long idAdmin;
 
     @Column(name = "motif_notification")
-    private String motif_notification;
+    @JsonProperty("motif_notification")
+    private String motifNotification;
 
     private String etat;
 }

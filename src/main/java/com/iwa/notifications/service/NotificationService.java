@@ -34,9 +34,9 @@ public class NotificationService {
 
     public NotificationEntity updateNotification(Long id, NotificationEntity notificationDetails) {
         NotificationEntity notification = notificationRepository.findById(id).orElseThrow(() -> new NotificationNotFoundException("Notification not found"));
-        notification.setId_user(notificationDetails.getId_user());
-        notification.setId_admin(notificationDetails.getId_admin());
-        notification.setMotif_notification(notificationDetails.getMotif_notification());
+        notification.setIdUser(notificationDetails.getIdUser());
+        notification.setIdAdmin(notificationDetails.getIdAdmin());
+        notification.setMotifNotification(notificationDetails.getMotifNotification());
         notification.setEtat(notificationDetails.getEtat());
         return notificationRepository.save(notification);
     }
