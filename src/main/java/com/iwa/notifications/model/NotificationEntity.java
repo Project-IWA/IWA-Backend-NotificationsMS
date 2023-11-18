@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "notifier")
 @Data               // Generates getters, setters, toString, equals, and hashCode methods
@@ -23,11 +25,15 @@ public class NotificationEntity {
     @Column(name = "id_user")
     private Long idUser;
 
+    // Opionnal
     @Column(name = "id_admin")
     private Long idAdmin;
 
-    @Column(name = "motif_notification")
-    private String motifNotification;
+    @Enumerated(EnumType.STRING)
+    private Etat etat; // "En attente", "Validée"
 
-    private String etat;
+    @Enumerated(EnumType.STRING)
+    private Type type; // "Suppression", "Validation"
+
+    private Date date;
 }
