@@ -57,7 +57,10 @@ public class NotificationController {
         //Check if the userId is the same as the one in the notification object in the body
         // If not, return a 403 Forbidden response
         if(userId != notification.getIdUser()) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            // If the notification.idUser is null then it is a new notification, so we can create it
+            if(notification.getIdUser() != null) {
+                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            }
         }
 
         // check if the idUser is different from the idAdmin
